@@ -135,7 +135,8 @@ func (b *Bridge) Sync(quiet bool) {
 				continue
 			}
 			serviceHostname := matches[1]
-			if serviceHostname != Hostname {
+			shortServiceHostname := strings.Split(serviceHostname, ".")[0]
+			if serviceHostname != Hostname && shortServiceHostname != Hostname {
 				// ignore because registered on a different host
 				continue
 			}
